@@ -1,0 +1,15 @@
+python manage.py runserver
+python manage.py search_index --rebuild
+venv\Scripts\activate
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+pip freeze > libary.txt
+pip install -r libary.txt
+python -m venv venv
+
+
+
+localhost:9200/_cat/indices?v&pretty
+localhost:9200/bookss/_doc/1?pretty
+DELETE localhost:9200/user
