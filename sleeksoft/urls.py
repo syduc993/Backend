@@ -25,10 +25,16 @@ from django.conf import settings
 
 from django.urls import re_path as url 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('get-my-zip-file',views.get_my_zip_file),
+    path('get-my-zip-file-product',views.get_my_zip_file_product),
+    path('get_file_calendar',views.get_file_calendar),
+    path('get-file-sortqc',views.get_file_sortqc),
     path('delete-my-zip-file',views.delete_my_zip_file),
+    path('delete-my-zip-file-product',views.delete_my_zip_file_product),
+    path('delete-file-calendar',views.delete_file_calendar),
+    path('delete-file-sortqc',views.delete_file_sortqc),
+    
     # path('add-data-file',views.add_data_file),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
