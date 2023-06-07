@@ -12,7 +12,7 @@ def Tach_file_tang_truong(file,folder):
 	warnings.filterwarnings("ignore")
 	pd.set_option('display.float_format', '{:.2f}'.format)
 
-	df_on = pd.read_excel("Backend/social/files_exel/"+file)
+	df_on = pd.read_excel("home/syduc993/Backend/social/files_exel/"+file)
 	cols = ['Mã model','Tên model','Giá bán khuyến mãi (SP cơ sở)','GrowNumber','Thời gian lên PO','Thời gian lên PO đến ngày','Thời gian áp dụng chia hàng','Thời gian kết thúc chia hàng','Thời gian áp dụng bán hàng','Thời gian kết thúc bán hàng','Siêu Thị Áp dụng']
 	df_on.columns = cols
 
@@ -26,7 +26,7 @@ def Tach_file_tang_truong(file,folder):
 		k = len(lst_product)
 		flag = 1
 		while k > 0:
-			df_Form = pd.read_excel("Backend/social/form/Form.xlsx")
+			df_Form = pd.read_excel("home/syduc993/Backend/social/form/Form.xlsx")
 			flag_product = lst_product[(flag-1)*80:flag*80]
 			for product in flag_product:
 				for i in lst_typestore:
@@ -50,7 +50,7 @@ def Extract_growth_data_product(file,folder):
 	warnings.filterwarnings("ignore")
 	pd.set_option('display.float_format', '{:.2f}'.format)
 
-	df_off = pd.read_excel("Backend/social/files_exel/"+file)
+	df_off = pd.read_excel("home/syduc993/Backend/social/files_exel/"+file)
 	cols = ['Mã model','Tên model','Giá bán khuyến mãi (SP cơ sở)','GrowNumber','Thời gian lên PO','Thời gian lên PO đến ngày','Thời gian áp dụng chia hàng','Thời gian kết thúc chia hàng','Thời gian áp dụng bán hàng','Thời gian kết thúc bán hàng','Siêu Thị Áp dụng']
 	df_off.columns = cols
 	lst_typestore = [1,2,3,4,5,18]
@@ -65,7 +65,7 @@ def Extract_growth_data_product(file,folder):
 	    ### Chạy vào từng hệ số tăng trưởng
 			
 		for growNumber in lst_number:
-			df_Form = pd.read_excel("Backend/social/form/Form.xlsx")
+			df_Form = pd.read_excel("home/syduc993/Backend/social/form/Form.xlsx")
 			lst_store = df_off[(df_off['Mã model']==product)&(df_off['GrowNumber']==growNumber)]['Siêu Thị Áp dụng'].tolist()
 			for i in lst_typestore:
 				df_Form.loc[len(df_Form)] = {'Mã phân loại siêu thị': i, 'Mã model': product,'Số lần tăng trưởng sức bán (số thập phân, phần thập phân 2 chữ số, > 0)':growNumber}
@@ -94,7 +94,7 @@ def get_calendar(file,folder):
 	pd.set_option('display.float_format', '{:.2f}'.format)
 
 	### Đọc dữ liệu NotifyCalendar
-	df_NotifyCalendar = pd.read_excel("Backend/social/files_exel/"+file)
+	df_NotifyCalendar = pd.read_excel("home/syduc993/Backend/social/files_exel/"+file)
 	df_NotifyCalendar['Mã sản phẩm'] = df_NotifyCalendar['Sản phẩm'].str.extract('(^[0-9]{0,13})')
 	df_NotifyCalendar.rename(columns={'Lịch theo thứ / tuần':'Lịch về hàng'},inplace=True)
 	df_NotifyCalendar.rename(columns={'Khu vực áp dụng':'Mã KV mua hàng'},inplace=True)
@@ -116,8 +116,8 @@ def sort_packing(file,folder):
 	warnings.filterwarnings("ignore")
 	pd.set_option('display.float_format', '{:.2f}'.format)
 
-	df_KV  = pd.read_excel("Backend/social/files_exel/"+file,sheet_name='Sheet1')
-	df_ST = pd.read_excel("Backend/social/files_exel/"+file,sheet_name='Sheet2')
+	df_KV  = pd.read_excel("home/syduc993/Backend/social/files_exel/"+file,sheet_name='Sheet1')
+	df_ST = pd.read_excel("Backend/git /files_exel/"+file,sheet_name='Sheet2')
 	df_ST = df_ST[['Mã SP','Mã ST','Mã KV','Tổng SL bán','Quy cách mua']]
 
 	df_ST['Số lượng rải custom'] = 0.0
