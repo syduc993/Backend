@@ -65,7 +65,7 @@ def Extract_growth_data_product(file,folder):
 	    ### Chạy vào từng hệ số tăng trưởng
 			
 		for growNumber in lst_number:
-			df_Form = pd.read_excel("social/form/Form.xlsx")
+			df_Form = pd.read_excel("Backend/social/form/Form.xlsx")
 			lst_store = df_off[(df_off['Mã model']==product)&(df_off['GrowNumber']==growNumber)]['Siêu Thị Áp dụng'].tolist()
 			for i in lst_typestore:
 				df_Form.loc[len(df_Form)] = {'Mã phân loại siêu thị': i, 'Mã model': product,'Số lần tăng trưởng sức bán (số thập phân, phần thập phân 2 chữ số, > 0)':growNumber}
