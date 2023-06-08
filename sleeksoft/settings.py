@@ -15,7 +15,7 @@ import os
 
 BASE_DIR=Path(__file__).resolve(strict=True).parent.parent
 MEDIA_URL='/'
-MEDIA_ROOT=os.path.join(BASE_DIR,"social/upload")
+MEDIA_ROOT=os.path.join(BASE_DIR,"Backend/social/upload")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -133,7 +133,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'vuthaind@gmail.com'
+EMAIL_HOST_USER = 'syduc993@gmail.com'
 EMAIL_HOST_PASSWORD = 'njzbshizdpnmupds'
 
 # Internationalization
@@ -142,7 +142,7 @@ EMAIL_HOST_PASSWORD = 'njzbshizdpnmupds'
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'vi'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC +7'
 
 USE_I18N = True
 

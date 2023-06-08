@@ -117,7 +117,7 @@ def sort_packing(file,folder):
 	pd.set_option('display.float_format', '{:.2f}'.format)
 
 	df_KV  = pd.read_excel("Backend/social/files_exel/"+file,sheet_name='Sheet1')
-	df_ST = pd.read_excel("Backend/git /files_exel/"+file,sheet_name='Sheet2')
+	df_ST = pd.read_excel("Backend/social/files_exel/"+file,sheet_name='Sheet2')
 	df_ST = df_ST[['Mã SP','Mã ST','Mã KV','Tổng SL bán','Quy cách mua']]
 
 	df_ST['Số lượng rải custom'] = 0.0
