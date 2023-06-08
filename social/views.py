@@ -37,7 +37,6 @@ def get_my_zip_file(request):
     try:
         in_memory_file_obj = request.FILES.get('file')
         name_xlsx = uuid.uuid4().hex.upper()[0:6] + '.xlsx'
-        FileSystemStorage(location="social/files_exel").save(name_xlsx, in_memory_file_obj)
         FileSystemStorage(location="Backend/social/files_exel").save(name_xlsx, in_memory_file_obj)
         folder_path ='my_zip_'+str(random.randint(1, 99999))
         folder_path1 = 'Backend/social/upload/'+folder_path+'/'
@@ -136,9 +135,9 @@ def get_file_sortqc(request):
 
 @api_view(['POST'])
 def delete_my_zip_file(request):
-    name = request.data['Return_data']
-    file_path = 'Backend/social/upload/'+ name
-    os.remove(file_path)
+    # name = request.data['Return_data']
+    # file_path = 'Backend/social/upload/'+ name
+    # os.remove(file_path)
     foderlink = 'Backend/social/upload'
     for i in os.listdir(foderlink):
         t=os.path.join(foderlink,i)
