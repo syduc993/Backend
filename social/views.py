@@ -39,23 +39,23 @@ def get_my_zip_file(request):
         name_xlsx = uuid.uuid4().hex.upper()[0:6] + '.xlsx'
         FileSystemStorage(location="social/files_exel").save(name_xlsx, in_memory_file_obj)
         folder_path ='my_zip_'+str(random.randint(1, 99999))
-        folder_path1 = 'Backend/social/upload/'+folder_path+'/'
+        folder_path1 = 'social/upload/'+folder_path+'/'
         #folder_path1 = 'home/syduc993Backend/social/upload/'+folder_pathgit sta
         os.mkdir(folder_path1)
 
         Tach_file_tang_truong(name_xlsx,folder_path1)
 
-        shutil.make_archive (folder_path, 'zip', 'Backend/social/upload/'+folder_path+'/')
-        shutil.move(folder_path+'.zip', 'Backend/social/upload/')
-        shutil.rmtree('Backend/social/upload/' + folder_path)
-        os.remove('Backend/social/files_exel/' + name_xlsx)
+        shutil.make_archive (folder_path, 'zip', 'social/upload/'+folder_path+'/')
+        shutil.move(folder_path+'.zip', 'social/upload/')
+        shutil.rmtree('social/upload/' + folder_path)
+        os.remove('social/files_exel/' + name_xlsx)
 
         message = {'Thongbao':'Thành công','data':folder_path+'.zip'}
         return Response(message,status=status.HTTP_200_OK)
 
     except:
-        shutil.rmtree('Backend/social/upload/' + folder_path)
-        os.remove('Backend/social/files_exel/' + name_xlsx)
+        shutil.rmtree('social/upload/' + folder_path)
+        os.remove('social/files_exel/' + name_xlsx)
         message = {'Thongbao':'Thất bại',}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
     
