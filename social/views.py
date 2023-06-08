@@ -46,17 +46,17 @@ def get_my_zip_file(request):
 
         Tach_file_tang_truong(name_xlsx,folder_path1)
 
-        shutil.make_archive (folder_path, 'zip', 'social/upload/'+folder_path+'/')
-        shutil.move(folder_path+'.zip', 'social/upload/')
-        shutil.rmtree('social/upload/' + folder_path)
-        os.remove('social/files_exel/' + name_xlsx)
+        shutil.make_archive (folder_path, 'zip', 'Backend/social/upload/'+folder_path+'/')
+        shutil.move(folder_path+'.zip', 'Backend/social/upload/')
+        shutil.rmtree('Backend/social/upload/' + folder_path)
+        os.remove('Backend/social/files_exel/' + name_xlsx)
 
         message = {'Thongbao':'Thành công','data':folder_path+'.zip'}
         return Response(message,status=status.HTTP_200_OK)
 
     except:
-        shutil.rmtree('social/upload/' + folder_path)
-        os.remove('social/files_exel/' + name_xlsx)
+        shutil.rmtree('Backend/social/upload/' + folder_path)
+        os.remove('Backend/social/files_exel/' + name_xlsx)
         message = {'Thongbao':'Thất bại',}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
     
