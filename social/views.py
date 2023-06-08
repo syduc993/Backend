@@ -138,14 +138,14 @@ def delete_my_zip_file(request):
     # name = request.data['Return_data']
     # file_path = 'Backend/social/upload/'+ name
     # os.remove(file_path)
-    foderlink = 'Backend/social/upload'
+    foderlink = 'Backend/social/upload/'
     for i in os.listdir(foderlink):
         t=os.path.join(foderlink,i)
         try:
             shutil.rmtree(t)
         except:
             os.remove(t)
-    foderlink = 'Backend/social/files_exel'
+    foderlink = 'Backend/social/files_exel/'
     for i in os.listdir(foderlink):
         t=os.path.join(foderlink,i)
         try:
