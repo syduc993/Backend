@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1vp=-*#%p!g0x3i3fwec-0k^5hrnh$fj370d6&n=m_d$6*&m=p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['syduc993.pythonanywhere.com']
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = (
 #   'http://localhost:5173',
@@ -100,11 +100,11 @@ DATABASES = {
 # }
 # }
 
-REST_FRAMEWORK = {
-    # 'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
-    # 'DEFAULT_PARSER_CLASSES':['rest_framework.parsers.JSONParser',],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-}
+# REST_FRAMEWORK = {
+#     # 'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
+#     # 'DEFAULT_PARSER_CLASSES':['rest_framework.parsers.JSONParser',],
+#     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+# }
 
 AUTH_USER_MODEL = 'social.User'
 
