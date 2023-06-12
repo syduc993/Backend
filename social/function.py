@@ -99,9 +99,11 @@ def get_calendar(file,folder):
 	df_NotifyCalendar.rename(columns={'Lịch theo thứ / tuần':'Lịch về hàng'},inplace=True)
 	df_NotifyCalendar.rename(columns={'Khu vực áp dụng':'Mã KV mua hàng'},inplace=True)
 
-	df_NotifyCalendar = df_NotifyCalendar[['Mã sản phẩm','Mã KV mua hàng','Lịch về hàng']]
+	df_NotifyCalendar = df_NotifyCalendar[['Mã sản phẩm','Sản phẩm','Mã KV mua hàng','Lịch về hàng','Kho áp dụng']]
 	df_NotifyCalendar['Mã KV mua hàng'] = df_NotifyCalendar['Mã KV mua hàng'].str.split(",")
+	df_NotifyCalendar['Kho áp dụng'] = df_NotifyCalendar['Kho áp dụng'].str.split(",")
 	df_NotifyCalendar = df_NotifyCalendar.explode('Mã KV mua hàng')
+	df_NotifyCalendar = df_NotifyCalendar.explode('Kho áp dụng')
 
 	df_NotifyCalendar['Mã KV mua hàng'] = df_NotifyCalendar['Mã KV mua hàng'].astype(str)
 	df_NotifyCalendar['Mã sản phẩm'] = df_NotifyCalendar['Mã sản phẩm'].astype(str)
